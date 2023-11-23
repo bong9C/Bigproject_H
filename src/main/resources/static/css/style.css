@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+}
+
+.btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    background-color: #333;
+    padding: 10px;
+    border: none;
+}
+
+.btn-prev {
+    left: 10px;
+}
+
+.btn-next {
+    right: 10px;
+}

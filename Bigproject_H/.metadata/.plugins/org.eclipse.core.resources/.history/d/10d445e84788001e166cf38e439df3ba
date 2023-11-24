@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- <body> 상단에 있는 navigation bar --%>
+
+   <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <div class="container-fluid">
+            <ul class="navbar-nav">
+                <div class="mt-2" >
+                <style="text-align: center; >
+                <span style="color: white;">
+                    오늘의 명언
+                    <a href="#"><span class="badge bg-secondary">수정</span></a>
+                </span>
+                </style>
+                </div>
+            </ul>
+            <c:if test="${not empty sessUname}">
+            	<span class="navbar-text me-3">${sessUname}님 환영합니다.</span>
+            </c:if>
+        </div>
+    </nav>

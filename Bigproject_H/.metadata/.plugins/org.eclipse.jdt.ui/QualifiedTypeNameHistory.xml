@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.human.project.entity.User"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.jsonFormatVisitors.JsonObjectFormatVisitor"/>
+    <fullyQualifiedTypeName name="org.mindrot.jbcrypt.BCrypt"/>
+</qualifiedTypeNameHistroy>

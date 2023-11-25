@@ -4,9 +4,11 @@
 
 
 
-    <div style="background: linear-gradient(to right, #FFD3E5, #FF88B9); color: white; text-align: center;">
-    <img src="/project/img/HH.png" alt="Logo" style="height: 150px; margin-right: 1200px;">
-    <p style="text-align: center;">오늘의 명언</p> 
-</div>
+	<body style="background: linear-gradient(to right, #DEB887, #FFDEAD);" color: white; text-align: center;">
+	    <!-- 이미지 경로를 상대 경로로 변경 -->
+	    <img src="/project/img/HH.png" alt="Logo" style="height: 150px; margin-right: 1200px;">
+	    <p style="text-align: center;">오늘의 명언</p> 
+	</body>
+
 
                 

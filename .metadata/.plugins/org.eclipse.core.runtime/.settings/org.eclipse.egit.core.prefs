@@ -1,4 +1,4 @@
-GitRepositoriesView.GitDirectories=E\:\\Bigproject_H\\Bigproject_H\\.git;
-GitRepositoriesView.GitDirectories.relative=Bigproject_H\\.git;
+GitRepositoriesView.GitDirectories=E\:\\Bigproject_H\\.git;E\:\\Bigproject_H\\Bigproject_H\\.git;
+GitRepositoriesView.GitDirectories.relative=.git;Bigproject_H\\.git;
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1

@@ -2,13 +2,29 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%-- <body> 상단에 있는 navigation bar --%>
 
+ <img src="/project/img/HH.png" alt="Logo" style="height: 150px; margin-right: 1200px;">
+    <p style="text-align: center;">오늘의 명언</p> 
+<style>
+    body {
+        background: url('/project/img/fall1.jpg') left/cover no-repeat;
+        color: white;
+        text-align: center;
+    }
 
+    .logo-container {
+        position: relative;
+    }
 
-	<body style="background: linear-gradient(to right, #DEB887, #FFDEAD);" color: white; text-align: center;">
-	    <!-- 이미지 경로를 상대 경로로 변경 -->
-	    <img src="/project/img/HH.png" alt="Logo" style="height: 150px; margin-right: 1200px;">
-	    <p style="text-align: center;">오늘의 명언</p> 
-	</body>
+    .logo-container img {
+        height: 150px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+    }
 
+    .quote {
+        text-align: center;
+    }
+</style>
 
-                

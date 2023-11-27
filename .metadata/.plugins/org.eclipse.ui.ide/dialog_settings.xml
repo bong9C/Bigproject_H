@@ -32,6 +32,7 @@
 		<item value="org.eclipse.wst.json_ui.feature:1.1.11.v202308160419"/>
 		<item value="org.eclipse.wst.web_ui.feature:3.31.0.v202308210520"/>
 		<item value="org.eclipse.wst.xml_ui.feature:3.31.0.v202308200343"/>
+		<item value="org.insightech.er.feature:1.0.0.v20150619-0219"/>
 		<item value="org.jboss.tools.m2e.wro4j.feature:1.2.1.202301111328"/>
 		<item value="org.sonatype.m2e.egit.feature:0.17.0.202209271423"/>
 	</list>
@@ -44,5 +45,27 @@
 			<item value="E:\Bigproject_H\project"/>
 			<item value="E:\Bigproject_H\Bigproject_H"/>
 		</list>
+	</section>
+	<section name="org.eclipse.text.quicksearch.internal.ui.QuickSearchDialog.DIALOG_SETTINGS">
+		<item key="LAST_QUERY" value="ck-logo"/>
+		<item key="PATH_FILTER" value=""/>
+		<item key="CASE_SENSITIVE" value="true"/>
+		<item key="KEEP_OPEN" value="false"/>
+		<list key="COLUMN_WIDTHS">
+			<item value="40"/>
+			<item value="400"/>
+			<item value="118"/>
+		</list>
+		<list key="SASH_WEIGHTS">
+			<item value="714"/>
+			<item value="285"/>
+		</list>
+		<section name="DialogBoundsSettings">
+			<item key="DIALOG_HEIGHT" value="500"/>
+			<item key="DIALOG_WIDTH" value="600"/>
+			<item key="DIALOG_X_ORIGIN" value="-913"/>
+			<item key="DIALOG_Y_ORIGIN" value="449"/>
+			<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+		</section>
 	</section>
 </section>

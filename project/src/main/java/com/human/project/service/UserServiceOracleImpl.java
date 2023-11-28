@@ -20,8 +20,8 @@ public class UserServiceOracleImpl implements UserService {
 	}
 
 	@Override
-	public User getUser(String uid) {
-		User user = userDao.getUser(uid);
+	public User getUser(String custid) {
+		User user = userDao.getUser(custid);
 		return user;
 	}
 
@@ -44,15 +44,15 @@ public class UserServiceOracleImpl implements UserService {
 	}
 
 	@Override
-	public void deleteUser(String uid) {
-		userDao.deleteUser(uid);
+	public void deleteUser(String custid) {
+		userDao.deleteUser(custid);
 	}
 
 	@Override
-	public int login(String uid, String pwd) {
-		User user = userDao.getUser(uid);
+	public int login(String custid, String pwd) {
+		User user = userDao.getUser(custid);
 		if (user == null)
-			return UID_NOT_EXIST;
+			return custid_NOT_EXIST;
 		if (BCrypt.checkpw(pwd, user.getPwd()))
 			return CORRECT_LOGIN;
 		else

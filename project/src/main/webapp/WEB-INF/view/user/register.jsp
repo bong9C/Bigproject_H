@@ -1,47 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link href="/project/css/register.css" rel="stylesheet">
-    <title>회원가입 Page</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles.css"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Your Page Title</title>
 </head>
+
 <body>
-    <div class="container" style="margin-top: 1px">
-        <div class="row">
-            <div class="image-container" style="position: relative;">
-                <!-- Background Image -->
-                <img src="/project/img/CCC.jpg" alt="CCC" class="background-image">
-                <img src="/project/img/book1.png" alt="book1" style="position: absolute; top: 100px; left: 190px; width: 1000px; height: 800px; z-index: 1;">
-                <!-- Signup Form -->
-                <div class="register-container" style="width: 350px; margin-top: 500px; padding: 40px; box-sizing: border-box; position: absolute; top: 50%; left: 39%; transform: translate(-50%, -50%); z-index: 2;">
-                    <img src="/project/img/HH.png" alt="HH" style="width: 350px; margin-top: 500px; padding: 40px; box-sizing: border-box; position: absolute; top: -35%; left: 150%; transform: translate(-50%, -50%); z-index: 2;">> 
-                    <div class="register-wrapper">
-                        <div class="container">
-                            <h2>회원가입</h2>
-                            <form method="post" action="/project/user/register" id="signup-form">
-                                <input type="text" name="uid" placeholder="ID">
-                                <input type="text" name="pwd" placeholder="비밀번호">
-                                <input type="text" name="pwd2" placeholder="비밀번호 확인">
-                                <input type="text" name="uname" placeholder="이름">
-                                <input type="text" name="nickname" placeholder="별명">
-                                <input type="text" name="email" placeholder="Email">
-                                <input type="submit" value="가입하기">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Include Login Form -->
-              
+
+    <nav style="position: relative; height: 100vh; overflow: hidden;">
+        <img src="/project/img/CCC.jpg" alt="CCC" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <img src="/project/img/book1.png" alt="book" style="position: absolute; top: 1.5cm; left: 3cm; width: 80%; height: 80%;">
+            <img src="/project/img/my_color.png" alt="my" style="position: absolute; top: 9cm; left: 20cm; width: 20%; height: 20%;">
+            <div style="position: absolute; top: 200px; left: calc(250px + 2cm); color: #black; z-index: 1;">
+                <h3><strong>회원가입</strong></h3>
+                <hr style="width: 80%; margin: 7px 0; border: 1px solid #fff;">
+                <form action="/project/user/register" method="post">
+                    <table style="width: 90%; border-spacing: 10px; border-collapse: separate;">
+                        <tr>
+                            <td style="width: 35%;"><label class="col-form-label">사용자 ID</label></td>
+                            <td style="width: 65%;"><input type="text" name="custid" class="form-control" style="width: calc(100% - 20px); margin-bottom: 16px;"></td>
+                        </tr>
+                        <tr>
+                            <td><label class="col-form-label">PW</label></td>
+                            <td><input type="password" name="pwd" class="form-control" style="width: calc(100% - 20px); margin-bottom: 16px;"></td>
+                        </tr>
+                        <tr>
+                            <td><label class="col-form-label">PW 확인</label></td>
+                            <td><input type="password" name="pwd2" class="form-control" style="width: calc(100% - 20px); margin-bottom: 16px;"></td>
+                        </tr>
+                        <tr>
+                            <td><label class="col-form-label">이름</label></td>
+                            <td><input type="text" name="uname" class="form-control" style="width: calc(100% - 20px); margin-bottom: 16px;"></td>
+                        </tr>
+                        <tr>
+                            <td><label class="col-form-label">별명</label></td>
+                            <td><input type="text" name="nickname" class="form-control" style="width: calc(100% - 20px); margin-bottom: 16px;"></td>
+                        </tr>
+                        <tr>
+                            <td><label class="col-form-label">이메일</label></td>
+                            <td><input type="text" name="email" class="form-control" style="width: calc(100% - 20px); margin-bottom: 16px;"></td>
+                        </tr>
+                        <tr>
+						 <td colspan="2" style="text-align: center;">
+                              <input class="btn btn-pink" type="submit" value="가입">
+                              <input class="btn btn-pink ms-1" type="reset" value="취소">
+                          </td>
+                        </tr>
+                    </table>
+                </form>
             </div>
         </div>
-    </div>
+    </nav>
+
     <%@ include file="../common/bottom.jspf" %>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

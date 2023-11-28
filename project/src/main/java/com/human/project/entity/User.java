@@ -3,34 +3,36 @@ package com.human.project.entity;
 import java.time.LocalDate;
 
 public class User {
-	private String uid;
+	private String custid;
 	private String pwd;
 	private String uname;
+	private String nickname;
 	private String email;
 	private LocalDate regDate;
 	private int isDeleted;
 	
 	public User() { }
-	public User(String uid, String pwd, String uname, String email) {
-		this.uid = uid;
+	public User(String custid, String pwd, String uname, String nickname, String email) {
+		this.custid = custid;
 		this.pwd = pwd;
 		this.uname = uname;
+		this.nickname = nickname;
 		this.email = email;
 	}
-	public User(String uid, String pwd, String uname, String email, LocalDate regDate, int isDeleted) {
-		this.uid = uid;
+	public User(String custid, String pwd, String uname, String nickname, String email, LocalDate regDate, int isDeleted) {
+		this.custid = custid;
 		this.pwd = pwd;
 		this.uname = uname;
+		this.nickname = nickname;
 		this.email = email;
 		this.regDate = regDate;
 		this.isDeleted = isDeleted;
 	}
-	
-	public String getUid() {
-		return uid;
+	public String getCustid() {
+		return custid;
 	}
-	public void setUid(String uid) {
-		this.uid = uid;
+	public void setCustid(String custid) {
+		this.custid = custid;
 	}
 	public String getPwd() {
 		return pwd;
@@ -43,6 +45,12 @@ public class User {
 	}
 	public void setUname(String uname) {
 		this.uname = uname;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	public String getEmail() {
 		return email;
@@ -62,10 +70,12 @@ public class User {
 	public void setIsDeleted(int isDeleted) {
 		this.isDeleted = isDeleted;
 	}
-	
 	@Override
 	public String toString() {
-		return "User [uid=" + uid + ", pwd=" + pwd + ", uname=" + uname + ", email=" + email + ", regDate=" + regDate
-				+ ", isDeleted=" + isDeleted + "]";
+		return "User [custid=" + custid + ", pwd=" + pwd + ", uname=" + uname + ", nickname=" + nickname + ", email=" + email
+				+ ", regDate=" + regDate + ", isDeleted=" + isDeleted + "]";
 	}
+	
 }
+	
+	

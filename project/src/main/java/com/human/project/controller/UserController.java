@@ -25,26 +25,27 @@ public class UserController {
 	@Autowired private UserService userService;
 
 	@ResponseBody
-	@GetMapping(value = {"/update/{uid}", "update"})
-	public String updateForm(@PathVariable(required = false) String uid) {
-		if (uid == null)
+	@GetMapping(value = {"/update/{custid}", "update"})
+	public String updateForm(@PathVariable(required = false) String custid) {
+		if (custid == null)
 			return "redirect:/user/home";
-		User user = userService.getUser(uid);
+		User user = userService.getUser(custid);
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("uid", user.getUid());
+		jsonObject.put("custid", user.getCustid());
 		jsonObject.put("uname", user.getUname());
+		jsonObject.put("nickname", user.getNickname());
 		jsonObject.put("email", user.getEmail());
 		return jsonObject.toJSONString();
 	}
 	
 	@PostMapping("/update")
-	public String updateProc(String pwd, String pwd2, String uname, 
+	public String updateProc(String pwd, String pwd2, String uname, String nickname,
 							 String email, HttpSession session, Model model) {
-		String sessUid = (String) session.getAttribute("sessUid");
-		if (sessUid == null)
+		String sesscustid = (String) session.getAttribute("sesscustid");
+		if (sesscustid == null)
 			return "redirect:/user/home";
 		
-		User user = userService.getUser(sessUid);
+		User user = userService.getUser(sesscustid);
 		// System.out.println("pwd=" + pwd + ", pwd2=" + pwd2);
 		if (pwd.length() >= 4 && pwd.equals(pwd2)) {
 			String hashedPwd = BCrypt.hashpw(pwd, BCrypt.gensalt());
@@ -57,18 +58,19 @@ public class UserController {
 			return "common/alertMsg";
 		}
 		user.setUname(uname);
+		user.setNickname(nickname);
 		user.setEmail(email);
 		userService.updateUser(user);
 		
 		return "redirect:/user/list/" + session.getAttribute("currentUserPage");
 	}
 	
-	@GetMapping("/delete/{uid}")
-	public String delete(@PathVariable String uid, HttpSession session) {
-		String sessUid = (String) session.getAttribute("sessUid");
-		if (sessUid == null)
+	@GetMapping("/delete/{custid}")
+	public String delete(@PathVariable String custid, HttpSession session) {
+		String sesscustid = (String) session.getAttribute("sesscustid");
+		if (sesscustid == null)
 			return "redirect:/user/home";
-		userService.deleteUser(uid);
+		userService.deleteUser(custid);
 		return "redirect:/user/list/" + session.getAttribute("currentUserPage");
 	}
 	
@@ -96,11 +98,11 @@ public class UserController {
 	}
 	
 	@PostMapping("/home")
-	public String homeProc(String uid, String pwd, HttpSession session, Model model) {
-		int result = userService.login(uid, pwd);
+	public String homeProc(String custid, String pwd, HttpSession session, Model model) {
+		int result = userService.login(custid, pwd);
 		if (result == userService.CORRECT_LOGIN) {
-			session.setAttribute("sessUid", uid);
-			User user = userService.getUser(uid);
+			session.setAttribute("sesscustid", custid);
+			User user = userService.getUser(custid);
 			session.setAttribute("sessUname", user.getUname());
 			session.setAttribute("sessEmail", user.getEmail());
 			
@@ -110,7 +112,7 @@ public class UserController {
 		} else if (result == userService.WRONG_PASSWORD) {
 			model.addAttribute("msg", "패스워드 입력이 잘못되었습니다.");
 			model.addAttribute("url", "/project/user/home");
-		} else {		// UID_NOT_EXIST
+		} else {		// custid_NOT_EXIST
 			model.addAttribute("msg", "ID 입력이 잘못되었습니다.");
 			model.addAttribute("url", "/project/user/home");
 		}
@@ -129,15 +131,16 @@ public class UserController {
 	}
 	
 	@PostMapping("/register")
-	public String registerProc(String uid, String pwd, String pwd2, 
-								String uname, String email, Model model) {
-		if (userService.getUser(uid) != null) {
+	public String registerProc(String custid, String pwd, String pwd2, String uname, 
+								 String nickname, String email, Model model) {
+		System.out.println(custid);
+		if (userService.getUser(custid) != null) {
 			model.addAttribute("msg", "사용자 ID가 중복되었습니다.");
 			model.addAttribute("url", "/project/user/register");
 		}
 		if (pwd.equals(pwd2) && pwd.length() >= 4) {	// pwd와 pwd2가 같고, 길이가 4이상이면
 			String hashedPwd = BCrypt.hashpw(pwd, BCrypt.gensalt());
-			User user = new User(uid, hashedPwd, uname, email);
+			User user = new User(custid, hashedPwd, uname, nickname, email);
 			userService.insertUser(user);
 			model.addAttribute("msg", "등록을 마쳤습니다. 로그인 하세요.");
 			model.addAttribute("url", "/project/user/home");

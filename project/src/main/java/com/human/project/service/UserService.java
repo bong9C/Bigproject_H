@@ -7,12 +7,12 @@ import com.human.project.entity.User;
 public interface UserService {
 	public static final int CORRECT_LOGIN = 0;
 	public static final int WRONG_PASSWORD = 1;
-	public static final int UID_NOT_EXIST = 2;
+	public static final int custid_NOT_EXIST = 2;
 	public static final int RECORDS_PER_PAGE = 5;	// 한 페이지당 10개 레코드를 보여줌
 	
 	int getUserCount();		// pagination을 위해 사용됨
 	
-	User getUser(String uid);
+	User getUser(String custid);
 	
 	List<User> getUserList(int page);
 	
@@ -20,8 +20,8 @@ public interface UserService {
 	
 	void updateUser(User user);
 	
-	void deleteUser(String uid);
+	void deleteUser(String custid);
 	
-	int login(String uid, String pwd);
+	int login(String custid, String pwd);
 	
 }
